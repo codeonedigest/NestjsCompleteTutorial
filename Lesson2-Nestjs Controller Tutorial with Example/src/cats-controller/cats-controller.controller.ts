@@ -1,39 +1,55 @@
-import { Controller, Get, Req, Post, Body, HttpCode, Header, Redirect, Param} from '@nestjs/common';
+import { Controller, Get, Req, Post, Body, HttpCode, Header, Redirect, Param, Logger} from '@nestjs/common';
 import { Request } from 'express';
 import { CatDto } from 'src/domain/CatDto';
+import { CatsService } from 'src/cats-service/CatsService';
+import { Cat } from 'src/cats-interface/Cat.interface';
 
 @Controller('cats')
 export class CatsControllerController {
-    @Get()
-    findAll(@Req() request: Request): string {
-      console.log("url - " + request.url + " Query Param - "+  request.query["name"]);
-      return "This action returns all cats " + request.url;
+  logger = new Logger(CatsControllerController.name);
+
+    constructor(private catService: CatsService) {}
+
+    @Post()
+    @HttpCode(201)
+    @Header('Cache-Control', 'none')
+    createCat(@Body() cat: Cat): String {
+        this.logger.debug("Creating cat " + cat);
+        this.catService.create(cat);
+        return 'this cat is created ' + cat.name;
     }
+
+    @Get()
+    async findAll(): Promise<Cat[]> {       
+      this.logger.debug("Fetching all cats from backend");
+      return this.catService.findAll();
+    }
+
+    @Get(':name')  
+    findCatByName(@Param() params: any): Cat {
+      this.logger.debug("Fetching cat from repository" + params.name);
+      return this.catService.findByName(params.name);
+    }
+
 
     @Get(':id')  
     findCatById(@Param() params: any): string {
-      console.log(params.id);
+      this.logger.debug(params.id);
       return `This action returns a #${params.id} cat`;
     }
 
     @Get('ab*cd') //abcd, ab_cd, ab-cd
     findCat(@Req() request: Request): string {
-      console.log("I am in wildcard route");
+      this.logger.debug("I am in wildcard route");
       return "I am in wildcard route";
     }
 
     @Get('catvideo')  
     @Redirect('https://nestjs.com', 301)
     findCatVideo(@Req() request: Request): string {
-      console.log("i am redirecting");
+      this.logger.debug("i am redirecting");
       return "i am redirecting";
     }
 
-    @Post()
-    @HttpCode(204)
-    @Header('Cache-Control', 'none')
-    createCat(@Body() catDto: CatDto): String {
-        console.log(catDto);
-        return 'this is creating animal ' + catDto.name;
-    }
+    
 }
