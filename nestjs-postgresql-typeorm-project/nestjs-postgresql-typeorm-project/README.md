@@ -39,10 +39,11 @@ npm install --save @nestjs/typeorm typeorm pg
 ```
 
 ## Generate Controller, Providers, Modules Classes
+```bash
 nest -- generate controller book
 nest -- generate service book
 nest -- generate module book
-
+```
 
 ## Running the app
 
