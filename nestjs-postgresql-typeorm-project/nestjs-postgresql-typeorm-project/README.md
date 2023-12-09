@@ -26,11 +26,23 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Create Nestjs Project
+npm i -g @nestjs/cli
+nest new <project-name>
+
+## Installation & download dependencies
 
 ```bash
-$ npm install
+npm install
+npm install --save dotenv
+npm install --save @nestjs/typeorm typeorm pg
 ```
+
+## Generate Controller, Providers, Modules Classes
+nest -- generate controller book
+nest -- generate service book
+nest -- generate module book
+
 
 ## Running the app
 
