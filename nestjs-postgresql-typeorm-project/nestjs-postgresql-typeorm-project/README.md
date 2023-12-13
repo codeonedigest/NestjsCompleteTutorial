@@ -26,10 +26,23 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Create Nestjs Project
+npm i -g @nestjs/cli
+nest new <project-name>
+
+## Installation & download dependencies
 
 ```bash
-$ npm install
+npm install
+npm install --save dotenv
+npm install --save @nestjs/typeorm typeorm pg
+```
+
+## Generate Controller, Providers, Modules Classes
+```bash
+nest -- generate controller book
+nest -- generate service book
+nest -- generate module book
 ```
 
 ## Running the app
@@ -64,9 +77,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Pawan Modi](https://codeonedigest.wordpress.com/)
+- Website - [https://codeonedigest.wordpress.com/](https://codeonedigest.wordpress.com/)
+- Twitter - [@codeonedigest](https://twitter.com/codeonedigest)
 
 ## License
 
