@@ -1,5 +1,5 @@
 import { Injectable, Logger } from "@nestjs/common";
-import { Cat } from "src/cats-interface/Cat.interface";
+import { Cat } from "src/cats/cats-interface/Cat.interface";
 
 
 @Injectable()

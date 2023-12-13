@@ -1,8 +1,8 @@
 import { Controller, Get, Req, Post, Body, HttpCode, Header, Redirect, Param, Logger} from '@nestjs/common';
 import { Request } from 'express';
-import { CatDto } from 'src/domain/CatDto';
-import { CatsService } from 'src/cats-service/CatsService';
-import { Cat } from 'src/cats-interface/Cat.interface';
+import { CatDto } from 'src/cats/domain/CatDto';
+import { CatsService } from 'src/cats/CatsService';
+import { Cat } from 'src/cats/cats-interface/Cat.interface';
 
 @Controller('cats')
 export class CatsControllerController {
