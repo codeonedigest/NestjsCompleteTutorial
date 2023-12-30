@@ -30,7 +30,28 @@
 
 ```bash
 $ npm install
+
+1. Install nest cli.
+$npm i @nestjs/cli
+
+2. Create nestjs project
+$nest new Nestjs-Microservices-MongoDB
+
+3. Install mongoose module in project
+$npm install --save @nestjs/mongoose mongoose
+
+4. Install class-validator for incoming request parameters
+$npm install class-validator --save
+
+5. Create student service class
+$nest generate service student
+
+6. Create student controller class
+$nest generate controller student
 ```
+
+
+ 
 
 ## Running the app
 
