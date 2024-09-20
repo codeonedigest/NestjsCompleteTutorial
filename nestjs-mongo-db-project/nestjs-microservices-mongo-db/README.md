@@ -30,7 +30,42 @@
 
 ```bash
 $ npm install
+
+1. Install nest cli.
+$npm i @nestjs/cli
+
+2. Create nestjs project
+$nest new Nestjs-Microservices-MongoDB
+
+3. Install mongoose module in project
+$npm install --save @nestjs/mongoose mongoose
+
+4. Install class-validator for incoming request parameters
+$npm install class-validator --save
+
+5. Create student service class
+$nest generate service student
+
+6. Create student controller class
+$nest generate controller student
 ```
+
+## Docker Command
+1. Download mongo db image from docker hub repository.
+docker pull mongo:latest
+
+
+2. Running Mongo DB in docker container
+docker run --name mongo606 -p 27018:27017 -d mongo:6.0.6
+
+
+3. Build docker image for Nestjs microservice application
+docker build -t codeonedigest/nestjs-mongodb-mongoose-project .
+
+
+4. Running Nestjs microservice image in docker container
+docker run -e DATABASE_URL=mongodb://172.17.0.2:27017/studentdb -p 3000:3000 codeonedigest/nestjs-mongodb-mongoose-project
+ 
 
 ## Running the app
 
