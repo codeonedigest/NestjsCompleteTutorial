@@ -7,8 +7,8 @@ export class AppService {
 
   AWS_S3_BUCKET = 'sea-ecomm-asia-dev';
   s3 = new AWS.S3({
-    accessKeyId: '<keyID>',
-    secretAccessKey: '<Secret>',
+    accessKeyId: 'AKIATNH4OXIMSOQSJKFP',
+    secretAccessKey: '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',
   });
 
   async uploadFile(file) {
