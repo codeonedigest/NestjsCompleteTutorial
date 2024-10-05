@@ -1,0 +1,14 @@
+
+1. Install nest cli using following command in a project directory
+npm install -g @nestjs/cli
+
+2. Create nestjs project using following command using nest cli command.
+nest new <new project name>
+
+3. Install aws sdk & multer dependencies in your nest js project directory.
+npm i aws-sdk
+npm i -D @types/multer
+
+
+3. Command to run nest js nestjs project
+npm run start
